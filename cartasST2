@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <string.h>
+
+// Estrutura para representar um estado
+typedef struct {
+    char nome[30];
+    int populacao;
+    float area;
+    int pontos_turisticos;
+} Estado;
+
+int main() {
+    // Criando dois estados para comparar
+    Estado estado1 = {"São Paulo", 46000000, 248209.4, 50};
+    Estado estado2 = {"Minas Gerais", 21200000, 586528.3, 35};
+    
+    int opcao;
+    
+    printf("=== SUPER TRUNFO DE ESTADOS ===\n");
+    printf("Estado 1: %s\n", estado1.nome);
+    printf("Estado 2: %s\n\n", estado2.nome);
+    
+    printf("ESCOLHA O ATRIBUTO PARA COMPARAR:\n");
+    printf("1 - População (maior vence)\n");
+    printf("2 - Área (maior vence)\n");
+    printf("3 - Pontos Turísticos (maior vence)\n");
+    printf("Digite sua escolha (1-3): ");
+    scanf("%d", &opcao);
+    
+    printf("\n=== RESULTADO ===\n");
+    
+    switch(opcao) {
+        case 1:
+            printf("POPULAÇÃO:\n");
+            printf("%s: %d habitantes\n", estado1.nome, estado1.populacao);
+            printf("%s: %d habitantes\n", estado2.nome, estado2.populacao);
+            
+            if(estado1.populacao > estado2.populacao)
+                printf("Vencedor: %s!\n", estado1.nome);
+            else if(estado2.populacao > estado1.populacao)
+                printf("Vencedor: %s!\n", estado2.nome);
+            else
+                printf("Empate!\n");
+            break;
+            
+        case 2:
+            printf("ÁREA:\n");
+            printf("%s: %.1f km²\n", estado1.nome, estado1.area);
+            printf("%s: %.1f km²\n", estado2.nome, estado2.area);
+            
+            if(estado1.area > estado2.area)
+                printf("Vencedor: %s!\n", estado1.nome);
+            else if(estado2.area > estado1.area)
+                printf("Vencedor: %s!\n", estado2.nome);
+            else
+                printf("Empate!\n");
+            break;
+            
+        case 3:
+            printf("PONTOS TURÍSTICOS:\n");
+            printf("%s: %d pontos\n", estado1.nome, estado1.pontos_turisticos);
+            printf("%s: %d pontos\n", estado2.nome, estado2.pontos_turisticos);
+            
+            if(estado1.pontos_turisticos > estado2.pontos_turisticos)
+                printf("Vencedor: %s!\n", estado1.nome);
+            else if(estado2.pontos_turisticos > estado1.pontos_turisticos)
+                printf("Vencedor: %s!\n", estado2.nome);
+            else
+                printf("Empate!\n");
+            break;
+            
+        default:
+            printf("Opção inválida! Use apenas 1, 2 ou 3.\n");
+    }
+    
+    return 0;
+}
